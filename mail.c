@@ -44,6 +44,12 @@ void print_massage(char *str, char *tail, t_mail *mail)
 				printf("%s", "она");
 			i += 3;
 		}
+		if (strncmp(&str[i], "[l]", 3) == 0)
+		{
+			
+			printf("%s", mail->link);
+			i += 3;
+		}
 		if (strncmp(&str[i], "[v]", 3) == 0)
 		{
 			if (strncmp(mail->sex,"M", 1) == 0)
@@ -105,13 +111,31 @@ void	read_data(t_mail *mail)
 
 void	open_data(t_mail *mail)
 {
+	char *line;
 
-	if ((mail->fd_name = open("nameC", O_RDONLY)) == -1)
+	if ((mail->fd_name = open("data5-6/nameC", O_RDONLY)) == -1)
+	{
 		write(2, "File name missing.\n", 19);
-	if ((mail->fd_par = open("nameP", O_RDONLY)) == -1)
+		exit(0);
+	}
+	if ((mail->fd_par = open("data5-6/nameP", O_RDONLY)) == -1)
+	{
 		write(2, "File name missing.\n", 19);
-	if ((mail->fd_email = open("email", O_RDONLY)) == -1)
+		exit(0);
+	}
+	if ((mail->fd_email = open("data5-6/email", O_RDONLY)) == -1)
+	{
 		write(2, "File name missing.\n", 19);
+		exit(0);
+	}
+	if ((mail->fd_link = open("data5-6/link", O_RDONLY)) == -1)
+	{
+		write(2, "File name missing.\n", 19);
+		exit(0);
+	}
+	get_next_line(mail->fd_link, &line);
+	strncpy(mail->link, line, strlen(line));
+	free(line);
 }
 
 void	close_file(t_mail *mail)
@@ -119,6 +143,7 @@ void	close_file(t_mail *mail)
 	close(mail->fd_name);
 	close(mail->fd_par);
 	close(mail->fd_email);
+	close(mail->fd_link);
 }
 
 void	delete_string(t_mail *mail)
@@ -139,7 +164,7 @@ int main(void)
 	int		count;
 	
 	i = -1;
-	count = 10;
+	count = 15;
 	setlocale(LC_ALL, "Rus");
 	char str[] = STR;
 	char str2[] = TAIL;
