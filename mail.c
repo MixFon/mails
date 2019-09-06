@@ -53,9 +53,9 @@ void print_massage(char *str, char *tail, t_mail *mail)
 		if (strncmp(&str[i], "[v]", 3) == 0)
 		{
 			if (strncmp(mail->sex,"M", 1) == 0)
-				printf("%s %s %s", "Ваш сын",mail->name, "учился");
+				printf("%s %s %s", "Ваш сын", mail->name, "учился");
 			else
-				printf("%s %s %s", "Ваша дочь",mail->name, "училась");
+				printf("%s %s %s", "Ваша дочь", mail->name, "училась");
 			i += 3;
 		}
 		if (strncmp(&str[i], "[p]", 3) == 0)
@@ -113,22 +113,22 @@ void	open_data(t_mail *mail)
 {
 	char *line;
 
-	if ((mail->fd_name = open("data5-6/nameC", O_RDONLY)) == -1)
+	if ((mail->fd_name = open("data9-10B/nameC", O_RDONLY)) == -1)
 	{
 		write(2, "File name missing.\n", 19);
 		exit(0);
 	}
-	if ((mail->fd_par = open("data5-6/nameP", O_RDONLY)) == -1)
+	if ((mail->fd_par = open("data9-10B/nameP", O_RDONLY)) == -1)
 	{
 		write(2, "File name missing.\n", 19);
 		exit(0);
 	}
-	if ((mail->fd_email = open("data5-6/email", O_RDONLY)) == -1)
+	if ((mail->fd_email = open("data9-10B/email", O_RDONLY)) == -1)
 	{
 		write(2, "File name missing.\n", 19);
 		exit(0);
 	}
-	if ((mail->fd_link = open("data5-6/link", O_RDONLY)) == -1)
+	if ((mail->fd_link = open("data9-10B/link", O_RDONLY)) == -1)
 	{
 		write(2, "File name missing.\n", 19);
 		exit(0);
@@ -164,7 +164,7 @@ int main(void)
 	int		count;
 	
 	i = -1;
-	count = 15;
+	count = 7;
 	setlocale(LC_ALL, "Rus");
 	char str[] = STR;
 	char str2[] = TAIL;
