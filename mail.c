@@ -8,7 +8,7 @@ void print_massage(char *str, char *tail, t_mail *mail)
 	int i;
 
 	i = 0;
-	printf("email = { %s }\n\n", mail->email);
+	printf("%s\nУНПК МФТИ\n\n", mail->email);
 	while (str[i] != '\0')
 	{
 		if (strncmp(&str[i], "[1]", 3) == 0)
@@ -113,22 +113,22 @@ void	open_data(t_mail *mail)
 {
 	char *line;
 
-	if ((mail->fd_name = open("data7-8/nameC", O_RDONLY)) == -1)
+	if ((mail->fd_name = open("lsh_mos9-10Sl/nameC", O_RDONLY)) == -1)
 	{
 		write(2, "File name missing.\n", 19);
 		exit(0);
 	}
-	if ((mail->fd_par = open("data7-8/nameP", O_RDONLY)) == -1)
+	if ((mail->fd_par = open("lsh_mos9-10Sl/nameP", O_RDONLY)) == -1)
 	{
 		write(2, "File name missing.\n", 19);
 		exit(0);
 	}
-	if ((mail->fd_email = open("data7-8/email", O_RDONLY)) == -1)
+	if ((mail->fd_email = open("lsh_mos9-10Sl/email", O_RDONLY)) == -1)
 	{
 		write(2, "File name missing.\n", 19);
 		exit(0);
 	}
-	if ((mail->fd_link = open("data7-8/link", O_RDONLY)) == -1)
+	if ((mail->fd_link = open("lsh_mos9-10Sl/link", O_RDONLY)) == -1)
 	{
 		write(2, "File name missing.\n", 19);
 		exit(0);
@@ -164,7 +164,7 @@ int main(void)
 	int		count;
 	
 	i = -1;
-	count = 15;
+	count = 17;
 	setlocale(LC_ALL, "Rus");
 	char str[] = STR;
 	char str2[] = STR2;
