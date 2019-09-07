@@ -113,22 +113,22 @@ void	open_data(t_mail *mail)
 {
 	char *line;
 
-	if ((mail->fd_name = open("data9-10B/nameC", O_RDONLY)) == -1)
+	if ((mail->fd_name = open("data7-8/nameC", O_RDONLY)) == -1)
 	{
 		write(2, "File name missing.\n", 19);
 		exit(0);
 	}
-	if ((mail->fd_par = open("data9-10B/nameP", O_RDONLY)) == -1)
+	if ((mail->fd_par = open("data7-8/nameP", O_RDONLY)) == -1)
 	{
 		write(2, "File name missing.\n", 19);
 		exit(0);
 	}
-	if ((mail->fd_email = open("data9-10B/email", O_RDONLY)) == -1)
+	if ((mail->fd_email = open("data7-8/email", O_RDONLY)) == -1)
 	{
 		write(2, "File name missing.\n", 19);
 		exit(0);
 	}
-	if ((mail->fd_link = open("data9-10B/link", O_RDONLY)) == -1)
+	if ((mail->fd_link = open("data7-8/link", O_RDONLY)) == -1)
 	{
 		write(2, "File name missing.\n", 19);
 		exit(0);
@@ -164,15 +164,23 @@ int main(void)
 	int		count;
 	
 	i = -1;
-	count = 7;
+	count = 15;
 	setlocale(LC_ALL, "Rus");
 	char str[] = STR;
-	char str2[] = TAIL;
+	char str2[] = STR2;
+	char str3[] = STR3;
+	char tail[] = TAIL;
 	open_data(&mail);
 	while(++i < count)
 	{
+		delete_string(&mail);
 		read_data(&mail);
-		print_massage(str, str2, &mail); 
+		if (i % 3 == 0)
+			print_massage(str, tail, &mail); 
+		else if (i % 3 == 1)
+			print_massage(str2, tail, &mail); 
+		else
+			print_massage(str3, tail, &mail); 
 		delete_string(&mail);
 	}
 	close_file(&mail);
