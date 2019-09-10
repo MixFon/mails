@@ -113,22 +113,22 @@ void	open_data(t_mail *mail)
 {
 	char *line;
 
-	if ((mail->fd_name = open("lsh_msk_fm9-10/nameC", O_RDONLY)) == -1)
+	if ((mail->fd_name = open("dolgop0306_7-8/nameC", O_RDONLY)) == -1)
 	{
 		write(2, "File name missing.\n", 19);
 		exit(0);
 	}
-	if ((mail->fd_par = open("lsh_msk_fm9-10/nameP", O_RDONLY)) == -1)
+	if ((mail->fd_par = open("dolgop0306_7-8/nameP", O_RDONLY)) == -1)
 	{
 		write(2, "File name missing.\n", 19);
 		exit(0);
 	}
-	if ((mail->fd_email = open("lsh_msk_fm9-10/email", O_RDONLY)) == -1)
+	if ((mail->fd_email = open("dolgop0306_7-8/email", O_RDONLY)) == -1)
 	{
 		write(2, "File name missing.\n", 19);
 		exit(0);
 	}
-	if ((mail->fd_link = open("lsh_msk_fm9-10/link", O_RDONLY)) == -1)
+	if ((mail->fd_link = open("dolgop0306_7-8/link", O_RDONLY)) == -1)
 	{
 		write(2, "File name missing.\n", 19);
 		exit(0);
@@ -164,7 +164,7 @@ int main(void)
 	int		count;
 	
 	i = -1;
-	count = 10;
+	count = 17;
 	setlocale(LC_ALL, "Rus");
 	char str[] = STR;
 	char str2[] = STR2;
